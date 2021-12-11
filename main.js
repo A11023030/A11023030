@@ -2,30 +2,35 @@ window.onload=function(){
     
     var questions = [
         {
-            "question": "笑氣是好東西?",
-            options: ["4", "不4", "不知道", "以上皆否"],
+            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
+            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
             answer: "1",
-            question_explain: "因為笑氣是毒品"
+            question_explain: "就是笑氣"
         },{
-            "question": "林擇智幾公斤?",
-            options: ["30~40", "40~50", "50~60", "以上皆否"],
-            answer: "0",
-            question_explain: "因為笑氣是毒品"
-        },{
-            "question": "笑氣是好東西?",
-            options: ["4", "不4", "不知道", "以上皆否"],
+            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
+            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
             answer: "1",
-            question_explain: "因為笑氣是毒品"
+            question_explain: "就是笑氣"
         },{
-            "question": "笑氣是好東西?",
-            options: ["4", "不4", "不知道", "以上皆否"],
+            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
+            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
             answer: "1",
-            question_explain: "因為笑氣是毒品"
+            question_explain: "就是笑氣"
         },{
-            "question": "笑氣是好東西?",
-            options: ["4", "不4", "不知道", "以上皆否"],
+            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
+            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
             answer: "1",
-            question_explain: "因為笑氣是毒品"
+            question_explain: "就是笑氣"
+        },{
+            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
+            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
+            answer: "1",
+            question_explain: "就是笑氣"
+        },{
+            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
+            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
+            answer: "1",
+            question_explain: "就是笑氣"
         },
     ]
 
