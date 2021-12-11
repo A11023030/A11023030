@@ -129,7 +129,7 @@ window.onload=function(){
 
             wrap.innerHTML = '<div class="tittle"><h1>遊戲結束</h1><h2>分數: '+ socre + '</h2></div><div class="questions"></div><div class="button"><button onclick="window.location.href=&apos;/index.html&apos;">回首頁</button><button>排行榜</button></div>';
         
-            window.title = "遊戲結束";
+            document.title = "遊戲結束";
 
             buttons = Array.prototype.slice.call(buttons)
             buttons = [].slice.call(buttons);
