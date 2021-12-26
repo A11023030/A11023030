@@ -38,11 +38,12 @@ img{
 
 .options {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
-button {
+#bt {
     appearance: button;
     backface-visibility: hidden;
     background-color: #364cca;
@@ -69,6 +70,172 @@ button {
     -webkit-user-select: none;
     touch-action: manipulation;
     width: 25%;
+    margin-bottom: 50px;
+}
+
+@media screen and (min-width: 881px) { 
+    .balloon {
+        display:inline-block;
+        height:145px;
+        width:120px;
+        background:hsl(215,50%,65%);
+        border-radius:80%;
+        position:relative;
+        box-shadow:inset -10px -10px 0 rgba(0,0,0,0.07);
+        margin:20px 30px;
+        transition:transform 0.5s ease;
+        z-index:10;
+        animation:balloons 4s ease-in-out infinite;
+        transform-origin:bottom center;
+    
+        border-width: 0;
+        cursor: pointer;
+        font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        text-align: center;
+    }
+
+    .balloon:before {
+        content:"▲";
+        font-size:20px;
+        color:hsl(215,30%,50%);
+        display:block;
+        text-align:center;
+        width:100%;
+        position:absolute;
+        bottom:-12px;
+        z-index:-100;
+    }
+    
+    .balloon:after {
+        display:inline-block; top:153px;
+        position:absolute;
+        height:140px;
+        width:1px;
+        margin:0 auto;
+        content:"";
+        background:rgba(0,0,0,0.2); 
+    }
+      
+    .balloon:nth-child(2){ background:hsl(245,40%,65%); animation-duration:3.5s; }
+    .balloon:nth-child(2):before { color:hsl(245,40%,65%);  }
+    
+    .balloon:nth-child(3){ background:hsl(139,50%,60%); animation-duration:3s; }
+    .balloon:nth-child(3):before { color:hsl(139,30%,50%);  }
+    
+    .balloon:nth-child(4){ background:hsl(59,50%,58%); animation-duration:4.5s; }
+    .balloon:nth-child(4):before { color:hsl(59,30%,52%);  }
+    
+    .balloon:nth-child(5){ background:hsl(23,55%,57%); animation-duration:5s; }
+    .balloon:nth-child(5):before { color:hsl(23,44%,46%);  }
+    
+    @keyframes balloons {
+        0%,100%{ transform:translateY(0) rotate(-4deg); }
+        50%{ transform:translateY(-25px) rotate(4deg); }
+    }
+}
+
+@media screen and (min-width: 768px) { 
+    .balloon {
+        display:inline-block;
+        width:100px;
+        height:120px;
+        background:hsl(215,50%,65%);
+        border-radius:80%;
+        position:relative;
+        box-shadow:inset -10px -10px 0 rgba(0,0,0,0.07);
+        margin:20px 30px;
+        transition:transform 0.5s ease;
+        z-index:10;
+        animation:balloons 4s ease-in-out infinite;
+        transform-origin:bottom center;
+    
+        border-width: 0;
+        cursor: pointer;
+        font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        text-align: center;
+    }
+
+    .balloon:before {
+        content:"▲";
+        font-size:20px;
+        color:hsl(215,30%,50%);
+        display:block;
+        text-align:center;
+        width:100%;
+        position:absolute;
+        bottom:-12px;
+        z-index:-100;
+    }
+
+    .balloon:after {
+        display:inline-block; top:153px;
+        position:absolute;
+        height:140px;
+        width:1px;
+        margin:0 auto;
+        content:"";
+        background:rgba(0,0,0,0.2); 
+    }
+    
+    .balloon:nth-child(2){ background:hsl(245,40%,65%); animation-duration:3.5s; }
+    .balloon:nth-child(2):before { color:hsl(245,40%,65%);  }
+
+    .balloon:nth-child(3){ background:hsl(139,50%,60%); animation-duration:3s; }
+    .balloon:nth-child(3):before { color:hsl(139,30%,50%);  }
+
+    .balloon:nth-child(4){ background:hsl(59,50%,58%); animation-duration:4.5s; }
+    .balloon:nth-child(4):before { color:hsl(59,30%,52%);  }
+
+    .balloon:nth-child(5){ background:hsl(23,55%,57%); animation-duration:5s; }
+    .balloon:nth-child(5):before { color:hsl(23,44%,46%);  }
+
+    @keyframes balloons {
+        0%,100%{ transform:translateY(0) rotate(-4deg); }
+        50%{ transform:translateY(-25px) rotate(4deg); }
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .balloon {
+        appearance: button;
+        backface-visibility: hidden;
+        background-color: #364cca;
+        border-radius: 6px;
+        border-width: 0;
+        box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+        font-size: 100%;
+        height: 44px;
+        line-height: 1.15;
+        margin: 12px 0 0;
+        outline: none;
+        overflow: hidden;
+        padding: 0 25px;
+        position: relative;
+        text-align: center;
+        text-transform: none;
+        transform: translateZ(0);
+        transition: all .2s,box-shadow .08s ease-in;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 100%;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
 }
 
 .button {
@@ -81,9 +248,34 @@ button {
     text-align: start;
     border: 1px solid #000000;
     border-radius: 1%;
-    background-color: #36b4ca;
+    background-color: #6ce7f7;
     font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
     margin-top: 5px;
+
+    backface-visibility: hidden;
+    background-color: #2c5fce;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s,box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-bottom: 20px;
 }
 
 .question > p {

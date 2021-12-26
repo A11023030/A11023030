@@ -2,30 +2,45 @@ window.onload=function(){
     
     var questions = [
         {
-            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
-            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
+            "question": "笑氣在常溫常壓下為無色無味的氣體?",
+            options: ["是", "否"],
             answer: "1",
-            question_explain: "就是笑氣"
         },{
-            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
-            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
+            "question": "笑氣是毒品的一種?",
+            options: ["是", "否"],
             answer: "1",
-            question_explain: "就是笑氣"
         },{
-            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
-            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
+            "question": "KTV若有人吸食笑氣，業者無主動通報並未觸法?",
+            options: ["是", "否"],
             answer: "1",
-            question_explain: "就是笑氣"
         },{
-            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
-            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
-            answer: "1",
-            question_explain: "就是笑氣"
+            "question": "笑氣可以用於食品添加物中?",
+            options: ["是", "否"],
+            answer: "0",
         },{
-            "question": "目前我國將毒品分為三級，而最近被列為關注度最高的一個藥品，但尚未列入三級分類的是哪一個?",
-            options: ["大麻", "笑氣", "古柯鹼", "以上皆否"],
+            "question": "有取得核可文件就可以使用笑氣?",
+            options: ["是", "否"],
+            answer: "0",
+        },{
+            "question": "施用後會使人在短時間內感到放鬆及愉悅感，且目前未列入毒品防害防制法的毒品分類中，請問是哪種濫用藥物?",
+            options: ["大麻", "笑氣", "古柯鹼"],
             answer: "1",
-            question_explain: "就是笑氣"
+        },{
+            "question": "笑氣為一種無色有甜味的氣體，何者不是它的正當用途?",
+            options: ["供人吸食", "食品加工", "醫療用麻醉劑"],
+            answer: "0",
+        },{
+            "question": "吸食笑氣候會產生以下何種情形?",
+            options: ["嗜睡", "變美麗", "不自覺想笑"],
+            answer: "2",
+        },{
+            "question": "吸食笑氣被抓到將會依照______法進行法辦?",
+            options: ["毒品妨害防制條例第4條", "社會秩序維護法第66條", "菸害防制法"],
+            answer: "1",
+        },{
+            "question": "面對有人向你提供毒品時，何種方式來回應不恰當?",
+            options: ["自我解諷法", "友誼勸服法", "屈就對方選擇答應"],
+            answer: "2",
         },
     ]
 
@@ -33,7 +48,10 @@ window.onload=function(){
     var answer = [];
     var question_index = 0;
     var question = document.getElementsByClassName("question_title")[0];
+
+    var optionz = document.getElementById("options");
     var options = document.getElementsByName("option");
+
     var time = document.getElementById("time");
     var wrap = document.getElementsByClassName("wrap")[0];
     var buttons = document.getElementsByTagName("Button");
@@ -60,27 +78,42 @@ window.onload=function(){
             endGame();
         }
     }, 1000);
-
-    options.forEach(element => {
-        element.addEventListener("click", nextQuestion);
-    });
     
     function init() {
         question.children[0].innerHTML = questions[question_index].question;
-      
-        options.forEach((element, index) => {
-            element.innerText = questions[question_index].options[index];
+
+        while (optionz.hasChildNodes()) {  
+            optionz.removeChild(optionz.firstChild);
+        }
+
+        questions[question_index].options.forEach((element, index) => {
+            var temp_option = document.createElement('button');
+            temp_option.name = "option";
+            temp_option.id = index;
+            temp_option.innerHTML = element;
+            temp_option.className = "balloon";
+
+            optionz.appendChild(temp_option);
+        });
+        
+        options.forEach(element => {
+            element.addEventListener("click", nextQuestion);
         });
     }
 
     function nextQuestion(e) {
         if (e.target.id !== questions[question_index].answer) {
-            e.target.style.backgroundColor = "#ff0000";
-            document.getElementById(questions[question_index].answer).style.backgroundColor = "#00ff00";
+            console.log(window.matchMedia("(max-width: 786px)").matches);
+            if (window.matchMedia("(max-width: 786px)").matches) {
+                e.target.style.backgroundColor = "#ff0000";
+                document.getElementById(questions[question_index].answer).style.backgroundColor = "#00ff00";
+            }
             answer.push({question_index: e.target.id});
         }else {
             socre += 10;
-            e.target.style.backgroundColor = "#00ff00"
+            if (window.matchMedia("(max-width: 786px)").matches) {
+                e.target.style.backgroundColor = "#00ff00"
+            }
             answer.push({question_index: e.target.id});
         }
 
@@ -90,26 +123,42 @@ window.onload=function(){
 
         window.setTimeout(function() {
             options.forEach(element => {
-                element.style.backgroundColor = "#364cca";
+                if (window.matchMedia("(max-width: 786px)").matches) {
+                    element.style.backgroundColor = "#364cca";
+                }
                 element.disabled = false;
             });
 
             question_index++;
                 
             if (question_index == questions.length) {
-
                 endGame();
                 return;
             }
     
             document.title= "關卡" + (parseInt(question_index) + 1);
-            
-            question.children[0].innerHTML = questions[question_index].question;
 
-            options.forEach((element, index) => {
-                element.innerText = questions[question_index].options[index];
+            while (optionz.hasChildNodes()) {  
+                optionz.removeChild(optionz.firstChild);
+            }
+
+            question.children[0].innerHTML = questions[question_index].question;
+    
+            questions[question_index].options.forEach((element, index) => {
+                var temp_option = document.createElement('button');
+                temp_option.name = "option";
+                temp_option.id = index;
+                temp_option.innerHTML = element;
+                temp_option.className = "balloon";
+    
+                optionz.appendChild(temp_option);
             });
-        }, 2000);
+            
+            options.forEach(element => {
+                element.addEventListener("click", nextQuestion);
+            });
+
+        }, 1500);
     }
 
     function endGame() {
@@ -127,7 +176,7 @@ window.onload=function(){
             wrap.style.width = "auto";
             wrap.style.height = "100%";
 
-            wrap.innerHTML = '<div class="tittle"><h1>遊戲結束</h1><h2>分數: '+ socre + '</h2></div><div class="questions"></div><div class="button"><button onclick="window.location.href=&apos;/index.html&apos;">回首頁</button><button>排行榜</button></div>';
+            wrap.innerHTML = '<div class="tittle"><h1>遊戲結束</h1><h2>分數: '+ socre + '</h2></div><div class="questions"></div><div class="button"><button id="bt" onclick="window.location.href=&apos;/index.html&apos;">回首頁</button></div>';
         
             document.title = "遊戲結束";
 
@@ -141,7 +190,7 @@ window.onload=function(){
             var questions_ele = document.getElementsByClassName("questions")[0];
 
             answer.forEach((element, index) => {
-                questions_ele.innerHTML += '<div class="question" id="' + index + '"><p>第'+ (parseInt(index) + 1) +'題: ' + questions[index].question + '</p><p>你的選擇: '+ questions[index].options[element.question_index] +'</p><p>答案: '+ questions[index].options[questions[index].answer] +'</p><p>問題解析: '+ questions[index].question_explain +'</p></div>';
+                questions_ele.innerHTML += '<div class="question" id="' + index + '"><p>第'+ (parseInt(index) + 1) +'題: ' + questions[index].question + '</p><p>你的答案: '+ questions[index].options[element.question_index] +'</p><p>正確答案: '+ questions[index].options[questions[index].answer] +'</p></div>';
             });
 
         }, 4200);
