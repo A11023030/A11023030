@@ -109,7 +109,8 @@ img{
     }
     
     .balloon:after {
-        display:inline-block; top:153px;
+        display:inline-block;
+        top: 128px;
         position:absolute;
         height:140px;
         width:1px;
@@ -172,7 +173,8 @@ img{
     }
 
     .balloon:after {
-        display:inline-block; top:153px;
+        display:inline-block;
+        top: 128px;
         position:absolute;
         height:140px;
         width:1px;
@@ -248,7 +250,7 @@ img{
     text-align: start;
     border: 1px solid #000000;
     border-radius: 1%;
-    background-color: #6ce7f7;
+    background-color: #5954d3;
     font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
     margin-top: 5px;
 
